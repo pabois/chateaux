@@ -1,5 +1,5 @@
 GIT
-  remote: https://f40dffc5bf5f35f770f57d4fe18148418ba2afdd:x-oauth-basic@github.com/lespoupeesrusses/inspinia-file.git
+  remote: https://8f4296571345e7220fdf59e2db0b486b53b8b36b:x-oauth-basic@github.com/lespoupeesrusses/inspinia-file.git
   revision: 7f8bdcf310067f4a7de93fc77d5fd48b008c880f
   branch: active_storage
   specs:
@@ -7,7 +7,7 @@ GIT
       simple_form
 
 GIT
-  remote: https://f40dffc5bf5f35f770f57d4fe18148418ba2afdd:x-oauth-basic@github.com/lespoupeesrusses/inspinia-rails.git
+  remote: https://8f4296571345e7220fdf59e2db0b486b53b8b36b:x-oauth-basic@github.com/lespoupeesrusses/inspinia-rails.git
   revision: 4f50271e8da87027871b42e751620284da0e163e
   specs:
     inspinia-rails (2.7.1)
