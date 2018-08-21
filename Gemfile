@@ -8,7 +8,7 @@ gem 'pg'
 gem 'puma'
 gem 'sass-rails'
 gem 'uglifier'
-gem 'mini_magick'
+gem 'image_processing'
 gem 'bootstrap-sass', '~> 3.3.7'
 gem 'font-awesome-sass'
 gem 'owlcarousel-rails'
@@ -18,9 +18,8 @@ gem 'simple-navigation'                                     # Nav               
 gem 'breadcrumbs_on_rails'                                  # Breadcrumbs
 gem 'bootstrap-datepicker-rails'
 gem "aws-sdk-s3", require: false
-gem 'font-awesome-rails'                                    # Font awesome
-gem 'inspinia-rails', git: 'https://9f12b7f244e685e593c7444b5bb089ac1252d82c:x-oauth-basic@github.com/lespoupeesrusses/inspinia-rails.git'
-gem 'inspinia_file', git: 'https://9f12b7f244e685e593c7444b5bb089ac1252d82c:x-oauth-basic@github.com/lespoupeesrusses/inspinia-file.git', branch: 'active_storage'
+gem 'inspinia-rails', git: 'https://d35b42e833dd810874a420ba48660090ed9d8400:x-oauth-basic@github.com/lespoupeesrusses/inspinia-rails.git'
+gem 'inspinia_file', git: 'https://d35b42e833dd810874a420ba48660090ed9d8400:x-oauth-basic@github.com/lespoupeesrusses/inspinia-file.git', branch: 'active_storage'
 
 
 group :development do

@@ -22,7 +22,7 @@ class Navigation::Navbar < SimpleNavigation::Renderer::Base
     content += " class=\"#{classes}\"" unless classes.nil?
     content += '>'
     content += "<a href=\"#{item.url}\">"
-    content += "<i class=\"fa fa-#{options[:icon].to_s}\"></i>" if icon
+    content += "<i class=\"#{options[:icon].to_s}\"></i>" if icon
     content += '<span class="nav-label">' if level == 1
     content += item.name
     content += '</span>' if level == 1

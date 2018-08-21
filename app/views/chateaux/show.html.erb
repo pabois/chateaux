@@ -1,7 +1,7 @@
 <% content_for :title, "#{@chateau}" %>
 
 <section id="page-header" class="ph-lg">
-	<div class="page-header-image parallax-bg-3 bg-image" style="background-image: url(banner.png);">
+	<div class="page-header-image parallax-bg-3 bg-image" style="background-image: url(<%= url_for(@chateau.banner.variant(resize: "1000x450")) if @chateau.banner.attached? %>);">
 		<div class="cover bg-transparent-5-dark"></div>
 	</div>
 	<div class="page-header-inner tt-wrap">
@@ -12,123 +12,29 @@
 			</div>
 		</div>
 		<div class="gallery-single-nav parallax-2 fade-out-scroll-4">
-			<a href="../rambouillet/index.html" class="gsn-prew" title="Prew Project"><i class="fas fa-angle-left"></i></a>
-			<a href="../../index.html" class="gsn-back" title="Back to albums"><i class="fas fa-th"></i></a>
+			<a href="../rambouillet/index.html" class="gsn-prew" title="Prev Project"><i class="fas fa-angle-left"></i></a>
+			<a href="<%= root_url %>" class="gsn-back" title="Retour à la liste"><i class="fas fa-th"></i></a>
 			<a href="../rambouillet/index.html" class="gsn-next" title="Next Project"><i class="fas fa-angle-right"></i></a>
 		</div>
 	</div>
 </section>
 
-<section id="gallery-single-section">
-	<div class="isotope-wrap tt-wrap">
-		<div class="isotope col-3 gutter-3">
-			<div id="gallery" class="isotope-items-wrap lightgallery">
-				<div class="grid-sizer"></div>
-				<!-- Begin of item to duplicate	-->
-				<div class="isotope-item">
-					<a href="1.png" class="gallery-single-item lg-trigger" data-exthumbnail="1thumb.png">
-						<img src="1.png" class="gs-item-image" alt="">
-						<div class="gs-item-icon"><i class="fas fa-search"></i></div>
-					</a>
+<% if @chateau.images.any? %>
+	<section id="gallery-single-section">
+		<div class="isotope-wrap tt-wrap">
+			<div class="isotope col-3 gutter-3">
+				<div id="gallery" class="isotope-items-wrap lightgallery">
+					<div class="grid-sizer"></div>
+					<% @chateau.images.each do |image| %>
+						<div class="isotope-item">
+							<a href="<%= url_for(image) %>" class="gallery-single-item lg-trigger" data-exthumbnail="<%= url_for(image.variant(resize: "150x113")) %>">
+								<img src="<%= url_for(image.variant(resize: "1000x1000")) %>" class="gs-item-image" alt="">
+								<div class="gs-item-icon"><i class="fas fa-search"></i></div>
+							</a>
+						</div>
+					<% end %>
 				</div>
-				<!-- End item to duplicate -->
-				<!-- Begin of item to duplicate	-->
-				<div class="isotope-item">
-					<a href="2.png" class="gallery-single-item lg-trigger" data-exthumbnail="2thumb.png">
-						<img src="2.png" class="gs-item-image" alt="">
-						<div class="gs-item-icon"><i class="fas fa-search"></i></div>
-					</a>
-				</div>
-				<!-- End item to duplicate -->
-				<!-- Begin of item to duplicate	-->
-				<div class="isotope-item">
-					<a href="3.png" class="gallery-single-item lg-trigger" data-exthumbnail="3thumb.png">
-						<img src="3.png" class="gs-item-image" alt="">
-						<div class="gs-item-icon"><i class="fas fa-search"></i></div>
-					</a>
-				</div>
-				<!-- End item to duplicate -->
-				<!-- Begin of item to duplicate	-->
-				<div class="isotope-item">
-					<a href="4.png" class="gallery-single-item lg-trigger" data-exthumbnail="4thumb.png">
-						<img src="4.png" class="gs-item-image" alt="">
-						<div class="gs-item-icon"><i class="fas fa-search"></i></div>
-					</a>
-				</div>
-				<!-- End item to duplicate -->
-				<!-- Begin of item to duplicate	-->
-				<div class="isotope-item">
-					<a href="5.png" class="gallery-single-item lg-trigger" data-exthumbnail="5thumb.png">
-						<img src="5.png" class="gs-item-image" alt="">
-						<div class="gs-item-icon"><i class="fas fa-search"></i></div>
-					</a>
-				</div>
-				<!-- End item to duplicate -->
-				<!-- Begin of item to duplicate	-->
-				<div class="isotope-item">
-					<a href="6.png" class="gallery-single-item lg-trigger" data-exthumbnail="6thumb.png">
-						<img src="6.png" class="gs-item-image" alt="">
-						<div class="gs-item-icon"><i class="fas fa-search"></i></div>
-					</a>
-				</div>
-				<!-- End item to duplicate -->
-				<!-- Begin of item to duplicate	-->
-				<div class="isotope-item">
-					<a href="7.png" class="gallery-single-item lg-trigger" data-exthumbnail="7thumb.png">
-						<img src="7.png" class="gs-item-image" alt="">
-						<div class="gs-item-icon"><i class="fas fa-search"></i></div>
-					</a>
-				</div>
-				<!-- End item to duplicate -->
-				<!-- Begin of item to duplicate	-->
-				<div class="isotope-item">
-					<a href="8.png" class="gallery-single-item lg-trigger" data-exthumbnail="8thumb.png">
-						<img src="8.png" class="gs-item-image" alt="">
-						<div class="gs-item-icon"><i class="fas fa-search"></i></div>
-					</a>
-				</div>
-				<!-- End item to duplicate -->
-				<!-- Begin of item to duplicate	-->
-				<div class="isotope-item">
-					<a href="9.png" class="gallery-single-item lg-trigger" data-exthumbnail="9thumb.png">
-						<img src="9.png" class="gs-item-image" alt="">
-						<div class="gs-item-icon"><i class="fas fa-search"></i></div>
-					</a>
-				</div>
-				<!-- End item to duplicate -->
-				<!-- Begin of item to duplicate	-->
-				<div class="isotope-item">
-					<a href="10.png" class="gallery-single-item lg-trigger" data-exthumbnail="10thumb.png">
-						<img src="10.png" class="gs-item-image" alt="">
-						<div class="gs-item-icon"><i class="fas fa-search"></i></div>
-					</a>
-				</div>
-				<!-- End item to duplicate -->
-				<!-- Begin of item to duplicate	-->
-				<div class="isotope-item">
-					<a href="11.png" class="gallery-single-item lg-trigger" data-exthumbnail="11thumb.png">
-						<img src="11.png" class="gs-item-image" alt="">
-						<div class="gs-item-icon"><i class="fas fa-search"></i></div>
-					</a>
-				</div>
-				<!-- End item to duplicate -->
-				<!-- Begin of item to duplicate	-->
-				<div class="isotope-item">
-					<a href="12.png" class="gallery-single-item lg-trigger" data-exthumbnail="12thumb.png">
-						<img src="12.png" class="gs-item-image" alt="">
-						<div class="gs-item-icon"><i class="fas fa-search"></i></div>
-					</a>
-				</div>
-				<!-- End item to duplicate -->
-				<!-- Begin of item to duplicate	-->
-				<div class="isotope-item">
-					<a href="13.png" class="gallery-single-item lg-trigger" data-exthumbnail="13thumb.png">
-						<img src="13.png" class="gs-item-image" alt="">
-						<div class="gs-item-icon"><i class="fas fa-search"></i></div>
-					</a>
-				</div>
-				<!-- End item to duplicate -->
 			</div>
 		</div>
-	</div>
-</section>
+	</section>
+<% end %>

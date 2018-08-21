@@ -46,6 +46,6 @@ class Admin::ChateauxController < Admin::ApplicationController
   end
 
   def chateau_params
-    params.require(:chateau).permit(:name, :created_at, :thumb, :cover, images: [])
+    params.require(:chateau).permit(:name, :created_at, :thumb, :banner, images: [])
   end
 end

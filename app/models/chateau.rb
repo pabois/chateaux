@@ -18,7 +18,7 @@ class Chateau < ApplicationRecord
   scope :ordered, -> { order(created_at: :desc) }
 
   # Validations
-  validates :name, :created_at, presence: true
+  validates :name, :created_at, :thumb, :banner, presence: true
 
   def to_s
     name

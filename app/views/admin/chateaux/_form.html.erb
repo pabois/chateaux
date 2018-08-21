@@ -1,8 +1,15 @@
 <%= simple_form_for [:admin, chateau], html: { multipart: true, class: 'form-vertical' }  do |f| %>
 
-  <%= f.input :name, label: 'Nom du Château' %>
-  <%= f.input :created_at, as: :string, input_html: { class: "datepicker", value: chateau.created_at.strftime("%d/%m/%Y") }, label: 'Date de la visite' %>
-  <%= f.input :thumb, label: 'Thumb', as: :inspinia_file %>
-  <%= f.button :submit, class: 'btn btn-primary' %>
+  <div class="row">
+    <div class="col-md-6">
+      <%= f.input :name, label: 'Nom du Château' %>
+      <%= f.input :created_at, as: :string, input_html: { class: "datepicker", value: chateau.created_at.strftime("%d/%m/%Y") }, label: 'Date de la visite' %>
+      <%= f.input :thumb, label: 'Vignette', as: :inspinia_file %>
+      <%= f.input :banner, label: 'Bannière', as: :inspinia_file %>
+      <%= f.button :submit, class: 'btn btn-primary' %>
+    </div>
+    <div class="col-md-6">
+      <%= f.input :images, input_html: { multiple: true } %>
+    </div>
 
 <% end %>

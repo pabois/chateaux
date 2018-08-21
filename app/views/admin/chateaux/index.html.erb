@@ -6,6 +6,7 @@
       <th scope="col">Nom</th>
       <th scope="col">Date de la visite</th>
       <th scope="col"></th>
+      <th scope="col"></th>
     </tr>
   </thead>
   <tbody>
@@ -13,6 +14,7 @@
       <tr>
         <td><%= link_to chateau, edit_admin_chateau_path(chateau) %></td>
         <td><%= chateau.created_at.strftime("%d/%m/%Y") %></td>
+        <td><%= image_tag chateau.thumb.variant(resize: "100x100") if chateau.thumb.attached? %></td>
         <td><%= link_to '<span class="glyphicon glyphicon-trash"></span>'.html_safe, admin_chateau_path(chateau), method: :delete %></td>
       </tr>
     <% end %>

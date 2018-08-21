@@ -26,7 +26,7 @@
               <div class="gallery-list-item">
                 <div class="gl-item-image-wrap">
                   <a href="<%= chateau_path(chateau) %>" class="gl-item-image-inner">
-                    <div class="gl-item-image bg-image" style="background-image: url(chateaux/maisons-laffite/thumb.jpg); background-position: 50% 50%"></div>
+                    <div class="gl-item-image bg-image" style="background-image: url(<%= url_for(chateau.thumb.variant(resize: "450x320")) if chateau.thumb.attached? %>); background-position: 50% 50%"></div>
                     <span class="gl-item-image-zoom"></span>
                   </a>
                 </div>
