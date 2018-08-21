@@ -18,8 +18,8 @@ gem 'simple-navigation'                                     # Nav               
 gem 'breadcrumbs_on_rails'                                  # Breadcrumbs
 gem 'bootstrap-datepicker-rails'
 gem "aws-sdk-s3", require: false
-gem 'inspinia-rails', git: 'https://d35b42e833dd810874a420ba48660090ed9d8400:x-oauth-basic@github.com/lespoupeesrusses/inspinia-rails.git'
-gem 'inspinia_file', git: 'https://d35b42e833dd810874a420ba48660090ed9d8400:x-oauth-basic@github.com/lespoupeesrusses/inspinia-file.git', branch: 'active_storage'
+gem 'inspinia-rails', git: "https://#{ENV['INSPINIA_ACCESS_TOKEN']}:x-oauth-basic@github.com/lespoupeesrusses/inspinia-rails.git"
+gem 'inspinia_file', git: "https://#{ENV['INSPINIA_ACCESS_TOKEN']}:x-oauth-basic@github.com/lespoupeesrusses/inspinia-file.git", branch: 'active_storage'
 
 
 group :development do
