@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+	<head>
+
+		<!-- Title -->
+		<title>Les Châteaux Forts - <%= yield :title %></title>
+
+		<!-- Meta -->
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="Photos souvenirs de Châteaux Forts">
+
+		<!-- Mobile Metas -->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<!-- Favicon (http://www.favicon-generator.org/) -->
+		<link rel="shortcut icon" href="<%= image_path('favicon.ico') %>" type="image/x-icon">
+		<link rel="icon" href="<%= image_path('favicon.ico') %>" type="image/x-icon">
+
+
+		<!-- Google fonts (https://www.google.com/fonts) -->
+		<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet"> <!-- Global font -->
+
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+
+	</head>
+
+	<body id="body" class="animsition tt-boxed">
+
+		<div id="body-content">
+      <%= yield %>
+		</div>
+
+		<!-- ====================
+		///// Scripts below /////
+		===================== -->
+    <%= javascript_include_tag 'application' %>
+
+	</body>
+
+</html>

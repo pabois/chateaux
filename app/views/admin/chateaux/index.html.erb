@@ -1,0 +1,24 @@
+<% content_for :title, 'Châteaux' %>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Nom</th>
+      <th scope="col">Date de la visite</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @chateaux.each do |chateau| %>
+      <tr>
+        <td><%= link_to chateau, edit_admin_chateau_path(chateau) %></td>
+        <td><%= chateau.created_at.strftime("%d/%m/%Y") %></td>
+        <td><%= link_to '<span class="glyphicon glyphicon-trash"></span>'.html_safe, admin_chateau_path(chateau), method: :delete %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<% content_for :action_bar_right do %>
+  <%= link_to('Nouveau Château', new_admin_chateau_path, class: 'btn btn-primary') %>
+<% end %>

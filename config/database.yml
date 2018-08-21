@@ -1,0 +1,10 @@
+development:
+  adapter:  postgresql
+  database: chateaux
+  host:     localhost
+  username: postgres
+  pool:     5
+  timeout:  5000
+
+production:
+  url: <%= ENV['DATABASE_URL'] %>

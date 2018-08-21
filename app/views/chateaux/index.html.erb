@@ -1,0 +1,46 @@
+<% content_for :title, 'Souvenirs de vacances' %>
+
+<section id="page-header">
+  <div class="page-header-image parallax-bg-3 bg-image" style="background-image: url(<%= image_path('banner.png') %>);">
+    <div class="cover bg-transparent-5-dark"></div>
+  </div>
+  <div class="page-header-inner tt-wrap">
+    <div class="page-header-caption ph-caption-lg parallax-5 fade-out-scroll-3">
+      <h1 class="page-header-title">Les Châteaux Forts</h1>
+      <hr class="hr-short">
+      <div class="page-header-description" >
+        <p>Grand fan de Châteaux forts depuis toujours, et de Châteaux en général par extension je m’efforce toujours de visiter au moins un nouvel endroit à chaque fois que je pars quelque part. Ce site est un petit condensé de tous les châteaux que j’ai pu visiter ces dernières années.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<% if @chateaux.any? %>
+  <section id="gallery-list-section">
+    <div class="isotope-wrap tt-wrap">
+      <div class="isotope col-3 gutter-3">
+        <div class="isotope-items-wrap gli-dark">
+          <div class="grid-sizer"></div>
+          <% @chateaux.each do |chateau| %>
+            <div class="isotope-item outdoor iso-height-1">
+              <div class="gallery-list-item">
+                <div class="gl-item-image-wrap">
+                  <a href="<%= chateau_path(chateau) %>" class="gl-item-image-inner">
+                    <div class="gl-item-image bg-image" style="background-image: url(chateaux/maisons-laffite/thumb.jpg); background-position: 50% 50%"></div>
+                    <span class="gl-item-image-zoom"></span>
+                  </a>
+                </div>
+                <div class="gl-item-info">
+                  <div class="gl-item-caption">
+                    <h2 class="gl-item-title"><a href="<%= chateau_path(chateau) %>"><%= "#{chateau}" %></a></h2>
+                    <span class="gl-item-category"><%= chateau.created_at.strftime("%d/%m/%Y") %></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </section>
+<% end %>

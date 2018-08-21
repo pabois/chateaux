@@ -1,0 +1,32 @@
+<% unless notice.nil? %>
+  <script>
+    $(document).ready(function() {
+      setTimeout(function() {
+        toastr.options = {
+          closeButton: true,
+          progressBar: true,
+          showMethod: 'slideDown',
+          positionClass: 'toast-top-right',
+          timeOut: 4000
+        };
+        toastr.success('<%= notice.html_safe %>');
+      }, 500);
+    });
+  </script>
+<% end %>
+<% unless alert.nil? %>
+  <script>
+    $(document).ready(function() {
+      setTimeout(function() {
+        toastr.options = {
+          closeButton: true,
+          progressBar: true,
+          showMethod: 'slideDown',
+          positionClass: 'toast-top-right',
+          timeOut: 4000
+        };
+        toastr.error('<%= alert.html_safe %>');
+      }, 500);
+    });
+  </script>
+<% end %>
