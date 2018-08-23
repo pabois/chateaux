@@ -11,8 +11,8 @@
 
 class Chateau < ApplicationRecord
 
-  has_one_attached :thumb
-  has_one_attached :banner
+  has_one_attached_deletable :thumb
+  has_one_attached_deletable :banner
   has_many_attached :images
 
   scope :ordered, -> { order(created_at: :desc) }

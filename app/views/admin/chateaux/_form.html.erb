@@ -4,8 +4,8 @@
     <div class="col-md-6">
       <%= f.input :name, label: 'Nom du Château' %>
       <%= f.input :created_at, as: :string, input_html: { class: "datepicker", value: chateau.created_at.strftime("%d/%m/%Y") }, label: 'Date de la visite' %>
-      <%#= f.input :thumb, label: 'Vignette', as: :inspinia_file %>
-      <%#= f.input :banner, label: 'Bannière', as: :inspinia_file %>
+      <%= f.input :thumb, label: 'Vignette', as: :deletable_file %>
+      <%= f.input :banner, label: 'Bannière', as: :deletable_file %>
       <%= f.button :submit, class: 'btn btn-primary' %>
     </div>
     <div class="col-md-6">

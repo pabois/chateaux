@@ -18,6 +18,7 @@ gem 'simple-navigation'                                     # Nav               
 gem 'breadcrumbs_on_rails'                                  # Breadcrumbs
 gem 'bootstrap-datepicker-rails'
 gem "aws-sdk-s3", require: false
+gem 'toastr-rails'
 
 
 group :development do
