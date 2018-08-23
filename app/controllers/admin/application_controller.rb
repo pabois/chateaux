@@ -1,7 +1,6 @@
 class Admin::ApplicationController < ApplicationController
   layout 'layouts/admin'
   before_action :http_basic_authenticate if Rails.env.production?
-  add_breadcrumb 'Dashboard', :admin_root_path
 
   private
 

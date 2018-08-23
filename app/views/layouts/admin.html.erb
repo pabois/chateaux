@@ -28,7 +28,7 @@
 	<body class="<%= body_classes %>">
 
 		<div id="wrapper">
-      <nav class="navbar-default navbar-static-side" role="navigation">
+      <nav class="navbar-default navbar-static-side visible-md visible-lg" role="navigation">
         <div class="sidebar-collapse">
           <ul class="nav metismenu" id="side-menu">
             <li class="nav-header">
@@ -41,13 +41,13 @@
       <div id="page-wrapper" class="gray-bg">
         <div class="row wrapper border-bottom white-bg page-heading">
           <div class="col-sm-12">
-            <h2><%= yield :title %></h2>
             <ol class="breadcrumb">
               <%= render_breadcrumbs tag: :li, separator: '' %>
             </ol>
           </div>
         </div>
         <div class="wrapper wrapper-content">
+					<h2><%= yield :title %></h2>
           <%= render "admin/application/alerts" %>
           <%= yield %>
         </div>

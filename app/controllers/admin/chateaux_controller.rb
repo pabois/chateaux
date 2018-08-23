@@ -12,7 +12,7 @@ class Admin::ChateauxController < Admin::ApplicationController
   end
 
   def edit
-    add_breadcrumb 'Modifier'
+    add_breadcrumb @chateau
   end
 
   def create
@@ -30,7 +30,7 @@ class Admin::ChateauxController < Admin::ApplicationController
       redirect_to admin_chateaux_path, notice: 'Le château a bien été modifié.'
     else
       render :edit
-      add_breadcrumb 'Modifier'
+      add_breadcrumb @chateau
     end
   end
 

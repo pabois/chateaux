@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :chateaux, only: :show
 
   namespace :admin do
-    root to: 'dashboard#index'
+    root to: 'chateaux#index'
     resources :chateaux, except: :show
   end
 end

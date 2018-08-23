@@ -1,26 +1,24 @@
 <% content_for :title, 'Châteaux' %>
 
+<%= link_to('Nouveau Château', new_admin_chateau_path, class: 'btn btn-primary hidden-md hidden-lg') %>
+
 <table class="table table-striped">
   <thead>
     <tr>
       <th scope="col">Nom</th>
       <th scope="col">Date de la visite</th>
-      <th scope="col"></th>
+      <th scope="col" class="visible-md visible-lg"></th>
       <th scope="col"></th>
     </tr>
   </thead>
   <tbody>
     <% @chateaux.each do |chateau| %>
-      <tr>
+      <tr height="117">
         <td><%= link_to chateau, edit_admin_chateau_path(chateau) %></td>
         <td><%= chateau.created_at.strftime("%d/%m/%Y") %></td>
-        <td><%= image_tag chateau.thumb.variant(resize: "100x100") if chateau.thumb.attached? %></td>
+        <td class="visible-md visible-lg"><%= image_tag chateau.thumb.variant(resize: "x100") if chateau.thumb.attached? %></td>
         <td><%= link_to '<span class="glyphicon glyphicon-trash"></span>'.html_safe, admin_chateau_path(chateau), method: :delete %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<% content_for :action_bar_right do %>
-  <%= link_to('Nouveau Château', new_admin_chateau_path, class: 'btn btn-primary') %>
-<% end %>

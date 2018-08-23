@@ -1,8 +1,75 @@
-@import 'toastr/toastr.min'
 @import 'font-awesome-sprockets'
 @import 'font-awesome'
 @import 'bootstrap-sprockets'
 @import 'bootstrap'
 @import 'bootstrap-datepicker3'
-@import 'inspinia'
-@import 'inspinia_file'
+
+
+body
+  background-color: #2f4050
+  font-family: "open sans", "Helvetica Neue", Helvetica, Arial, sans-serif
+  font-size: 13px
+  color: #676a6c
+  overflow-x: hidden
+
+#wrapper
+  width: 100%
+  overflow-x: hidden
+
+.navbar-default
+  background-color: transparent
+  border-color: #2f4050
+  z-index: 2001
+  position: absolute
+  width: 270px
+  .nav li a:hover
+    background-color: #293846
+    color: #fff
+
+#page-wrapper
+  margin: 0 0 0 270px
+  min-height: 100vh
+  padding: 0 15px
+  @media (max-width: 991px)
+    margin-left: 0
+
+.wrapper-content
+  padding: 20px 10px 40px
+
+.nav-header
+  padding: 33px 25px
+  h1
+    font-weight: 400
+    font-size: 36px
+    color: #fff
+    a
+      color: #fff
+
+.nav
+  & > li
+    & > a
+      color: #a7b1c2
+      font-weight: 600
+      padding: 14px 20px 14px 25px
+      i
+        margin-right: 6px
+
+    &.active
+      border-left: 4px solid #19aa8d
+      background: #293846
+
+      & > a
+      color: #fff
+
+.gray-bg
+  background-color: #f3f3f4
+
+.white-bg
+  background-color: #fff
+
+.table
+  margin-bottom: 0
+
+.breadcrumb
+  background-color: transparent
+  margin-top: 20px
