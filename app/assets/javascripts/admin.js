@@ -9,6 +9,7 @@
 //= require toastr
 //= require jquery_nested_form
 //= require dropzone
+//= require jquery.sortable.min
 
 $(function() {
 
@@ -37,5 +38,28 @@ $(function() {
   Dropzone.prototype.defaultOptions.dictCancelUpload = "Annuler";
   Dropzone.prototype.defaultOptions.dictCancelUploadConfirmation = "Êtes-vous sûr ?";
   Dropzone.prototype.defaultOptions.dictRemoveFile = "Supprimer";
+
+  function updateImages() {
+    var sortableList = $('.thumbnail-sortable');
+    var url = sortableList.data('sort-url');
+    var ids = [];
+    $('.thumbnail-block', sortableList).each(function() {
+      ids.push($(this).data('id'));
+    })
+    $.ajax({
+      type: "POST",
+      url: url,
+      data: { image_ids: ids }
+    });
+
+  }
+
+  // Sortable list of previews
+  $('.thumbnail-sortable')
+      .sortable( { placeholderClass: 'col-sm-6 col-md-4' } )
+      .on('sortupdate', updateImages);
+
+
+;
 
 });

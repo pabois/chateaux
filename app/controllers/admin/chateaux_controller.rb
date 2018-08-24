@@ -1,5 +1,5 @@
 class Admin::ChateauxController < Admin::ApplicationController
-  before_action :load, only: [:edit, :update, :destroy]
+  before_action :load, only: [:edit, :update, :destroy, :update_images]
   add_breadcrumb 'Châteaux', :admin_chateaux_path
 
   def index
@@ -38,6 +38,16 @@ class Admin::ChateauxController < Admin::ApplicationController
   def destroy
     @chateau.destroy
     redirect_to admin_chateaux_path, notice: 'Le château a bien été détruit.'
+  end
+
+  def update_images
+    ids = []
+    params[:image_ids].each.with_index do |id, index|
+      id = id.to_i # json format -> string
+      ids << id
+      @chateau.gallery_images.find(id).update_column(:position, index + 1)
+    end
+    @chateau.gallery_images.where.not(id: ids).destroy_all
   end
 
   private

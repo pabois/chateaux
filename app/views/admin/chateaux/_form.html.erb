@@ -1,17 +1,26 @@
-
-  <div class="row">
-    <div class="col-md-6">
-      <%= simple_nested_form_for [:admin, chateau], html: { multipart: true, class: 'form-vertical' }  do |f| %>
+<div class="row">
+  <div class="col-md-6">
+    <%= simple_nested_form_for [:admin, chateau], html: { multipart: true, class: 'form-vertical' }  do |f| %>
       <%= f.input :name, label: 'Nom du Château' %>
       <%= f.input :created_at, as: :string, input_html: { class: "datepicker", value: chateau.created_at.strftime("%d/%m/%Y") }, label: 'Date de la visite' %>
       <%= f.input :thumb, label: 'Vignette', as: :deletable_file %>
       <%= f.input :banner, label: 'Bannière', as: :deletable_file %>
       <%= f.button :submit, class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+  <div class="col-md-6">
+
+    <div class="row thumbnail-sortable" data-sort-url="<%= update_images_admin_chateau_path(chateau) %>">
+      <% chateau.gallery_images.ordered.each do |image| %>
+        <div class="col-sm-6 col-md-4 thumbnail-block" draggable="true" data-id="<%= image.id %>">
+            <div class="thumbnail">
+                <%= image_tag image.file.variant(resize: "x200") %>
+            </div>
+        </div>
       <% end %>
     </div>
-    <div class="col-md-6">
 
-      <form action="<%= admin_chateau_gallery_images_path(chateau) %>" class="dropzone"></form>
+    <form action="<%= admin_chateau_gallery_images_path(chateau) %>" class="dropzone"></form>
 
 
-    </div>
+  </div>
