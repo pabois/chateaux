@@ -29,16 +29,7 @@ $(function() {
     $('.delete_switch', this).val('');
   });
 
-  // Dropzone customization
-  Dropzone.prototype.defaultOptions['headers'] = { 'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content') };
-  Dropzone.prototype.defaultOptions.dictDefaultMessage = "Ajouter des images";
-  Dropzone.prototype.defaultOptions.dictFileTooBig = "le fichier est trop gros ({{filesize}}MiB). Poids max : {{maxFilesize}}MiB.";
-  Dropzone.prototype.defaultOptions.dictInvalidFileType = "Pas de fichier de ce type.";
-  Dropzone.prototype.defaultOptions.dictResponseError = "Le serveur a répondu : {{statusCode}}.";
-  Dropzone.prototype.defaultOptions.dictCancelUpload = "Annuler";
-  Dropzone.prototype.defaultOptions.dictCancelUploadConfirmation = "Êtes-vous sûr ?";
-  Dropzone.prototype.defaultOptions.dictRemoveFile = "Supprimer";
-
+  // Image management
   function updateImages() {
     var sortableList = $('.thumbnail-sortable');
     var url = sortableList.data('sort-url');
@@ -51,7 +42,6 @@ $(function() {
       url: url,
       data: { image_ids: ids }
     });
-
   }
 
   // Sortable list of previews
@@ -59,12 +49,31 @@ $(function() {
       .sortable( { placeholderClass: 'col-sm-6 col-md-4' } )
       .on('sortupdate', updateImages);
 
+  // Delete button for thumbnails
   $('.thumbnail-sortable .delete').click(function() {
     $(this).parents('.thumbnail-block').remove();
     updateImages();
   });
 
+  // Dropzone customization
+  Dropzone.prototype.defaultOptions['headers'] = { 'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content') };
+  Dropzone.prototype.defaultOptions['acceptedFiles'] = "image/jpg, image/jpeg, image/png, image/gif";
+  Dropzone.prototype.defaultOptions.dictDefaultMessage = "Ajouter des images";
+  Dropzone.prototype.defaultOptions.dictFileTooBig = "le fichier est trop gros ({{filesize}}MiB). Poids max : {{maxFilesize}}MiB.";
+  Dropzone.prototype.defaultOptions.dictInvalidFileType = "Pas de fichier de ce type.";
+  Dropzone.prototype.defaultOptions.dictResponseError = "Le serveur a répondu : {{statusCode}}.";
+  Dropzone.prototype.defaultOptions.dictCancelUpload = "Annuler";
+  Dropzone.prototype.defaultOptions.dictCancelUploadConfirmation = "Êtes-vous sûr ?";
+  Dropzone.prototype.defaultOptions.dictRemoveFile = "Supprimer";
 
-;
+  // Dropable zone
+  var myDropzone = new Dropzone(".dropzone");
+  myDropzone.on("success", function(file, response) {
+    var url = $('.thumbnail-sortable').data('preview-url');
+    var id = response.id;
+    var jqxhr = $.get(url + id);
+  });
 
 });
+
+Dropzone.autoDiscover = false;

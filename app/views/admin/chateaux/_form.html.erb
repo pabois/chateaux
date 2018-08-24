@@ -10,14 +10,9 @@
   </div>
   <div class="col-md-6">
 
-    <div class="row thumbnail-sortable" data-sort-url="<%= update_images_admin_chateau_path(chateau) %>">
-      <% chateau.gallery_images.ordered.each do |image| %>
-        <div class="col-sm-6 col-md-4 thumbnail-block" draggable="true" data-id="<%= image.id %>">
-            <div class="thumbnail">
-                <%= image_tag image.file.variant(resize: "x200") %>
-                <span class="glyphicon glyphicon-remove-sign delete"></span>
-            </div>
-        </div>
+    <div class="row thumbnail-sortable" data-sort-url="<%= update_images_admin_chateau_path(chateau) %>" data-preview-url="<%= admin_chateau_gallery_images_path(chateau) %>/">
+      <% chateau.gallery_images.ordered.each do |gallery_image| %>
+        <%= render gallery_image %>
       <% end %>
     </div>
 

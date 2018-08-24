@@ -4,9 +4,13 @@ class Admin::GalleryImagesController < Admin::ApplicationController
     image = GalleryImage.new(chateau_id: params[:chateau_id], file: params[:file])
     if image.valid?
       image.save
-      render json: { }, status: :ok
+      render json: { id: image.id }, status: :ok
     else
-      render json: { error: "Une erreur est survenue" }, status: 412
+      render json: { error: "#{image.errors.first[0].capitalize} : #{image.errors.first[1].capitalize}" }, status: 412
     end
+  end
+
+  def show
+    @gallery_image = GalleryImage.find(params[:id])
   end
 end

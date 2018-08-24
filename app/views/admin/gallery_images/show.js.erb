@@ -1,0 +1,5 @@
+$('.thumbnail-sortable').append("<%= j render @gallery_image %>");
+$('.thumbnail-sortable')
+    .sortable( { placeholderClass: 'col-sm-6 col-md-4' } )
+    .off('sortupdate', updateImages)
+    .on('sortupdate', updateImages);

@@ -46,7 +46,7 @@ class Admin::ChateauxController < Admin::ApplicationController
       id = id.to_i # json format -> string
       ids << id
       @chateau.gallery_images.find(id).update_column(:position, index + 1)
-    end
+    end unless params[:image_ids].nil?
     @chateau.gallery_images.where.not(id: ids).destroy_all
   end
 
