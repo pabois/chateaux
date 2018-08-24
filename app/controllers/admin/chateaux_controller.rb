@@ -8,6 +8,7 @@ class Admin::ChateauxController < Admin::ApplicationController
 
   def new
     @chateau = Chateau.new(created_at: Time.now)
+    @chateau.build_gallery_image
     add_breadcrumb 'Nouveau Château'
   end
 
@@ -46,6 +47,6 @@ class Admin::ChateauxController < Admin::ApplicationController
   end
 
   def chateau_params
-    params.require(:chateau).permit(:name, :created_at, :thumb, :thumb_delete, :banner, :banner_delete, images: [])
+    params.require(:chateau).permit(:name, :created_at, :thumb, :thumb_delete, :banner, :banner_delete, gallery_images_attributes: [:image, :position])
   end
 end

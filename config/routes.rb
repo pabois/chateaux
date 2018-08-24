@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root to: 'chateaux#index'
-    resources :chateaux, except: :show
+    resources :chateaux, except: :show do
+      resources :gallery_images, only: [:create, :destroy]
+    end
   end
 end

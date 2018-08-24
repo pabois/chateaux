@@ -19,7 +19,7 @@ gem 'breadcrumbs_on_rails'                                  # Breadcrumbs
 gem 'bootstrap-datepicker-rails'
 gem "aws-sdk-s3", require: false
 gem 'toastr-rails'
-
+gem "nested_form"
 
 group :development do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

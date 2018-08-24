@@ -1,15 +1,17 @@
-<%= simple_form_for [:admin, chateau], html: { multipart: true, class: 'form-vertical' }  do |f| %>
 
   <div class="row">
     <div class="col-md-6">
+      <%= simple_nested_form_for [:admin, chateau], html: { multipart: true, class: 'form-vertical' }  do |f| %>
       <%= f.input :name, label: 'Nom du Château' %>
       <%= f.input :created_at, as: :string, input_html: { class: "datepicker", value: chateau.created_at.strftime("%d/%m/%Y") }, label: 'Date de la visite' %>
       <%= f.input :thumb, label: 'Vignette', as: :deletable_file %>
       <%= f.input :banner, label: 'Bannière', as: :deletable_file %>
       <%= f.button :submit, class: 'btn btn-primary' %>
+      <% end %>
     </div>
     <div class="col-md-6">
-      <%= f.input :images, input_html: { multiple: true } %>
-    </div>
 
-<% end %>
+      <form action="<%= admin_chateau_gallery_images_path(chateau) %>" class="dropzone"></form>
+
+
+    </div>
