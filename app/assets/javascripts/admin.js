@@ -59,6 +59,11 @@ $(function() {
       .sortable( { placeholderClass: 'col-sm-6 col-md-4' } )
       .on('sortupdate', updateImages);
 
+  $('.thumbnail-sortable .delete').click(function() {
+    $(this).parents('.thumbnail-block').remove();
+    updateImages();
+  });
+
 
 ;
 

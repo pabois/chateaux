@@ -15,6 +15,7 @@
         <div class="col-sm-6 col-md-4 thumbnail-block" draggable="true" data-id="<%= image.id %>">
             <div class="thumbnail">
                 <%= image_tag image.file.variant(resize: "x200") %>
+                <span class="glyphicon glyphicon-remove-sign delete"></span>
             </div>
         </div>
       <% end %>
