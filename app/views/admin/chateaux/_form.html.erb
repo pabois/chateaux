@@ -3,8 +3,8 @@
     <%= simple_nested_form_for [:admin, chateau], html: { multipart: true, class: 'form-vertical' }  do |f| %>
       <%= f.input :name, label: 'Nom du Château' %>
       <%= f.input :created_at, as: :string, input_html: { class: "datepicker", value: chateau.created_at.strftime("%d/%m/%Y") }, label: 'Date de la visite' %>
-      <%= f.input :thumb, label: 'Vignette', as: :deletable_file %>
-      <%= f.input :banner, label: 'Bannière', as: :deletable_file %>
+      <%= f.input :thumb, label: 'Vignette', as: :deletable_file, hint: '450x320' %>
+      <%= f.input :banner, label: 'Bannière', as: :deletable_file, hint: '1000x450' %>
       <%= f.button :submit, class: 'btn btn-primary' %>
     <% end %>
   </div>

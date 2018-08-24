@@ -19,16 +19,16 @@
 	</div>
 </section>
 
-<% if @chateau.images.any? %>
+<% if @chateau.gallery_images.any? %>
 	<section id="gallery-single-section">
 		<div class="isotope-wrap tt-wrap">
 			<div class="isotope col-3 gutter-3">
 				<div id="gallery" class="isotope-items-wrap lightgallery">
 					<div class="grid-sizer"></div>
-					<% @chateau.images.each do |image| %>
+					<% @chateau.gallery_images.ordered.each do |gallery_image| %>
 						<div class="isotope-item">
-							<a href="<%= url_for(image) %>" class="gallery-single-item lg-trigger" data-exthumbnail="<%= url_for(image.variant(resize: "150x113")) %>">
-								<img src="<%= url_for(image.variant(resize: "1000x1000")) %>" class="gs-item-image" alt="">
+							<a href="<%= url_for(gallery_image.file) %>" class="gallery-single-item lg-trigger" data-exthumbnail="<%= url_for(gallery_image.file.variant(resize: "150x113")) %>">
+								<img src="<%= url_for(gallery_image.file.variant(resize: "1000x1000")) %>" class="gs-item-image" alt="">
 								<div class="gs-item-icon"><i class="fas fa-search"></i></div>
 							</a>
 						</div>

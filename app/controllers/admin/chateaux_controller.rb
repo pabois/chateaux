@@ -18,7 +18,7 @@ class Admin::ChateauxController < Admin::ApplicationController
   def create
     @chateau = Chateau.new(chateau_params)
     if @chateau.save
-      redirect_to admin_chateaux_path, notice: 'Le château a bien été créé.'
+      redirect_to edit_admin_chateau_path(@chateau), notice: 'Le château a bien été créé.'
     else
       render :new
       add_breadcrumb 'Nouveau Château'
