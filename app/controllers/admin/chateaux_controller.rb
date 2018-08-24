@@ -8,7 +8,6 @@ class Admin::ChateauxController < Admin::ApplicationController
 
   def new
     @chateau = Chateau.new(created_at: Time.now)
-    @chateau.build_gallery_image
     add_breadcrumb 'Nouveau Château'
   end
 

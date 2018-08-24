@@ -69,13 +69,15 @@ $(function () {
     Dropzone.prototype.defaultOptions.dictRemoveFile = "Supprimer";
 
     // Dropable zone
-    var myDropzone = new Dropzone(".dropzone");
-    myDropzone.on("success", function (file, response) {
-        var url = $('.thumbnail-sortable').data('preview-url'),
-            id = response.id;
-        $.get(url + id);
-        return file;
-    });
+    if ($(".dropzone").length > 0) {
+        var myDropzone = new Dropzone(".dropzone");
+        myDropzone.on("success", function (file, response) {
+            var url = $('.thumbnail-sortable').data('preview-url'),
+                id = response.id;
+            $.get(url + id);
+            return file;
+        });
+    }
 
 });
 

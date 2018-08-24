@@ -10,13 +10,14 @@
   </div>
   <div class="col-md-6">
 
-    <div class="row thumbnail-sortable" data-sort-url="<%= update_images_admin_chateau_path(chateau) %>" data-preview-url="<%= admin_chateau_gallery_images_path(chateau) %>/">
-      <% chateau.gallery_images.ordered.each do |gallery_image| %>
-        <%= render gallery_image %>
-      <% end %>
-    </div>
+    <% unless chateau.new_record? %>
+      <div class="row thumbnail-sortable" data-sort-url="<%= update_images_admin_chateau_path(chateau) %>" data-preview-url="<%= admin_chateau_gallery_images_path(chateau) %>/">
+        <% chateau.gallery_images.ordered.each do |gallery_image| %>
+          <%= render gallery_image %>
+        <% end %>
+      </div>
 
-    <form action="<%= admin_chateau_gallery_images_path(chateau) %>" class="dropzone"></form>
-
+      <form action="<%= admin_chateau_gallery_images_path(chateau) %>" class="dropzone"></form>
+    <% end %>
 
   </div>

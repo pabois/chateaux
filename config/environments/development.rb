@@ -60,5 +60,5 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
   # Active Storage config to use
-  config.active_storage.service = :local
+  config.active_storage.service = :amazon
 end
