@@ -12,9 +12,13 @@
 			</div>
 		</div>
 		<div class="gallery-single-nav parallax-2 fade-out-scroll-4">
-			<a href="#" class="gsn-prew" title="Prev Project"><i class="fas fa-angle-left"></i></a>
+			<% unless @prev.nil? %>
+				<a href="<%= chateau_path(@prev) %>" class="gsn-prew" title="Prev Project"><i class="fas fa-angle-left"></i></a>
+			<% end %>
 			<a href="<%= root_url %>" class="gsn-back" title="Retour à la liste"><i class="fas fa-th"></i></a>
-			<a href="#" class="gsn-next" title="Next Project"><i class="fas fa-angle-right"></i></a>
+			<% unless @next.nil? %>
+				<a href="<%= chateau_path(@next) %>" class="gsn-next" title="Next Project"><i class="fas fa-angle-right"></i></a>
+			<% end %>
 		</div>
 	</div>
 </section>
