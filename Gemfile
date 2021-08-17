@@ -1,15 +1,15 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.5.1'
+ruby '2.7.3'
 
-gem 'rails', '~> 5.2.0'
+gem 'rails'
 gem 'pg'
 gem 'puma'
 gem 'sass-rails'
 gem 'uglifier'
 gem 'image_processing'
-gem 'bootstrap-sass', '~> 3.3.7'
+gem 'bootstrap-sass'
 gem 'font-awesome-sass'
 gem 'owlcarousel-rails'
 gem 'jquery-rails'
