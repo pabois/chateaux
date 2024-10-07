@@ -1,25 +1,26 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.7.3'
+ruby '3.3.5'
 
-gem 'rails'
+gem "aws-sdk-s3", require: false
+gem 'bootstrap-datepicker-rails'
+gem 'bootstrap-sass'
+gem 'breadcrumbs_on_rails'                                  # Breadcrumbs
+gem 'font-awesome-sass'
+gem 'image_processing'
+gem 'jquery-rails'
+gem "nested_form"
+gem 'owlcarousel-rails'
 gem 'pg'
 gem 'puma'
+gem 'rails'
 gem 'sass-rails'
-gem 'uglifier'
-gem 'image_processing'
-gem 'bootstrap-sass'
-gem 'font-awesome-sass'
-gem 'owlcarousel-rails'
-gem 'jquery-rails'
 gem 'simple_form'
 gem 'simple-navigation'                                     # Nav                             https://github.com/codeplant/simple-navigation/
-gem 'breadcrumbs_on_rails'                                  # Breadcrumbs
-gem 'bootstrap-datepicker-rails'
-gem "aws-sdk-s3", require: false
+gem "sprockets-rails"
 gem 'toastr-rails'
-gem "nested_form"
+gem 'uglifier'
 
 group :development do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -28,3 +29,4 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen'
 end
+
