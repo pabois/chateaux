@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.4.1'
+ruby '3.4.4'
 
 gem "aws-sdk-s3", require: false
 gem 'bootstrap-datepicker-rails'
@@ -14,7 +14,7 @@ gem "nested_form"
 gem 'owlcarousel-rails'
 gem 'pg'
 gem 'puma'
-gem 'rails', '~> 7.2'
+gem 'rails', '~> 8.0.2'
 gem 'sass-rails'
 gem 'simple_form'
 gem 'simple-navigation'                                     # Nav                             https://github.com/codeplant/simple-navigation/
