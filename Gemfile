@@ -4,9 +4,10 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '3.4.8'
 
 gem "aws-sdk-s3", require: false
+gem "benchmark", "~> 0.5.0"
 gem 'bootstrap-datepicker-rails'
 gem 'bootstrap-sass'
-gem 'breadcrumbs_on_rails'                                  # Breadcrumbs
+gem 'breadcrumbs_on_rails'
 gem 'font-awesome-sass'
 gem 'image_processing'
 gem 'jquery-rails'
@@ -18,7 +19,7 @@ gem 'puma'
 gem 'rails', '~> 8.1'
 gem 'sass-rails'
 gem 'simple_form'
-gem 'simple-navigation'                                     # Nav                             https://github.com/codeplant/simple-navigation/
+gem 'simple-navigation'
 gem "sprockets-rails"
 gem 'toastr-rails'
 gem 'uglifier'
