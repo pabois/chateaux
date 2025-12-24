@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.4.5'
+ruby '3.4.8'
 
 gem "aws-sdk-s3", require: false
 gem 'bootstrap-datepicker-rails'
@@ -11,10 +11,11 @@ gem 'font-awesome-sass'
 gem 'image_processing'
 gem 'jquery-rails'
 gem "nested_form"
+gem "ostruct", "~> 0.6.3"
 gem 'owlcarousel-rails'
 gem 'pg'
 gem 'puma'
-gem 'rails', '~> 8.0.2'
+gem 'rails', '~> 8.1'
 gem 'sass-rails'
 gem 'simple_form'
 gem 'simple-navigation'                                     # Nav                             https://github.com/codeplant/simple-navigation/
@@ -23,10 +24,9 @@ gem 'toastr-rails'
 gem 'uglifier'
 
 group :development do
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'byebug', platforms: [:mri, :windows]
   gem 'web-console'
   gem 'listen'
   gem 'spring'
   gem 'spring-watcher-listen'
 end
-
